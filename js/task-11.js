@@ -1,4 +1,4 @@
-// Task 1
+// ------------------------------------------Task 1
 
 function calculateEngravingPrice(message, pricePerWord) {
 
@@ -15,7 +15,7 @@ console.log(messageSplit)
 //  console.log(calculateEngravingPrice('JavaScript is in my blood', 20));
 
 
-// Task 2 
+// -------------------------------------------Task 2 
 
 function slugify(title) {
  
@@ -27,7 +27,8 @@ function slugify(title) {
 // console.log(slugify('How to become a JUNIOR developer for TWO WEEKS'))
 
 
-// Task 3
+// ---------------------------------------------Task 3
+
 function calculateTotal(number) {
 
    let total = 0;
@@ -42,7 +43,8 @@ function calculateTotal(number) {
 //  console.log(calculateTotal(5))
 
 
-// Task 4
+// ------------------------------------------------Task 4
+
  function calculateTotalPrice(order) {
   let total = 0;
   
@@ -58,7 +60,7 @@ for (let i = 0; i < order.length; i += 1) {
 // console.log(calculateTotalPrice([412, 371, 94, 63, 176]))
 
 
-// Task 5
+// -------------------------------------------------Task 5
 
 function findLongestWord(string) {
   
@@ -81,7 +83,7 @@ let wordlength = 0;
 // console.log(findLongestWord('May the force be with you'))
 
 
-// Task 6
+// --------------------------------------------------Task 6
 
 function createArrayOfNumbers(min, max) {
   const numbers = [];
@@ -97,7 +99,7 @@ for (let i = min; i <= max; i += 1) {
 
 
 
-// Task 7
+// --------------------------------------------------Task 7
 
 function filterArray(numbers, value) {
  
@@ -115,7 +117,9 @@ return arr;
 // console.log(filterArray([1,2,3,4,5,6,7], 4));
 
 
-// Task 8
+
+
+// ----------------------------------------------------Task 8
 
 function includes(array, value) {
   
@@ -123,8 +127,6 @@ for (const signification of array){
   if (signification === value){
     return true;
   } 
-  
-  
 } 
 return false;
 
@@ -133,7 +135,9 @@ return false;
 // console.log(includes(['apple', 'plum', 'pear', 'orange'], 'plum'));
 // console.log(includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Uranus'))
 
-// Task 9
+
+
+// -----------------------------------------------------Task 9
 
 function countProps(object) {
   let propCount = 0;
@@ -154,7 +158,9 @@ for (const key in object) {
 // console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }));
 
 
-// Task 10
+
+
+// -------------------------------------------------------Task 10
 
 function countTotalSalary(salaries) {
   let totalSalary = 0;
@@ -175,7 +181,7 @@ for (const value of values) {
 
 
 
-// Task 11
+// -----------------------------------------------------------Task 11
 
 const colors = [
   { hex: "#f44336", rgb: "244,67,54" },
@@ -192,14 +198,12 @@ for (const color of colors) {
   rgbColors.push(color.rgb);
 }
 
-
-
 // console.log(hexColors);
 // console.log(rgbColors);
 
 
 
-// Task 12 
+// ----------------------------------------------------Task 12 
 
 // const products = [
 //   { name: "Radar", price: 1300, quantity: 4 },
@@ -225,7 +229,9 @@ for (const color of colors) {
 // console.log(getProductPrice("Droid"));
 // console.log(getProductPrice("Engine"));
 
-// Task 13
+
+
+// -----------------------------------------------------Task 13
 
 // const products = [
 //   { name: "Radar", price: 1300, quantity: 4 },
@@ -257,6 +263,9 @@ for (const color of colors) {
 // console.log(getAllPropValues("category"));
 
 
+
+// -----------------------------------------------------------Task 14
+
 // const products = [
 //   { name: "Radar", price: 1300, quantity: 4 },
 //   { name: "Scanner", price: 2700, quantity: 3 },
@@ -273,7 +282,7 @@ for (const color of colors) {
 //   for (i = 0; i < products.length; i += 1) {
    
 //     if (productValue[i] === productName) {
-//       // console.log(productValue[i].price)
+
 //       total = product.price*product.quantity;
 //     }
 //   }
@@ -282,9 +291,6 @@ for (const color of colors) {
 
 // }
 
-
-
-
 // console.log(calculateTotalPrice("Blaster"));
 // console.log(calculateTotalPrice("Radar"));
 // console.log(calculateTotalPrice("Droid"));
@@ -292,12 +298,15 @@ for (const color of colors) {
 
 
 
+
+// ------------------------------------------------------------------Task 15
+
 // function makeTask(data) {
 
-//   // Change code below this line
+
 //   const {category = "General", priority = "Normal", completed = false, text} = data;
 
-//   // Change code above this line
+
 //   if (text === undefined) {
 //     return {category, priority, completed}
 //   }
@@ -320,12 +329,16 @@ for (const color of colors) {
 //   }
 
 //   return total;
-//   // Change code above this line
+
 // }
 
 // console.log(addOverNum(50, 15, 27))
 // console.log(addOverNum(15, 32, 6, 13, 19, 8))
 
+
+
+
+// ---------------------------------------------------------Task 16
 
 // function findMatches([...arguments], ...args) {
 //   const matches = []; // Don't change this line
@@ -336,7 +349,7 @@ for (const color of colors) {
 //     matches.push(arg)
 //   }
 // }
-//   // Change code above this line
+
 //   return matches;
 // }
 
@@ -344,24 +357,15 @@ for (const color of colors) {
 // console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7))
 // console.log(findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2))
 
-// function findMatches(array, ...args) {
-//   const matches = []; // Don't change this line
-// for (const arg of args) {
-//   for (item of array) {
-//     if (arg === item) {
-//       matches.push(arg)
-//     }
-//   }
-// }
-//   // Change code above this line
-//   return matches;
-// }
 
+
+
+// ---------------------------------------------------------Task 17
 
 // const bookShelf = {
 //   books: ["The last kingdom", "Haze", "The guardian of dreams"],
 //   updateBook(oldName, newName) {
-//     // Change code below this line
+
 
 // const indexOfBook = this.books.indexOf(oldName)
 // console.log(indexOfBook);
@@ -372,6 +376,10 @@ for (const color of colors) {
 
 // bookShelf.updateBook("Haze", "Dungeon chronicles")
 // console.log(bookShelf.books);
+
+
+
+// --------------------------------------------------------Task 18
 
 const atTheOldToad = {
   potions: [
@@ -424,7 +432,7 @@ potion.name = newName;
   }
   
 }
-  // Change code above this line
+ 
 
 
 console.log(atTheOldToad.getPotions());
