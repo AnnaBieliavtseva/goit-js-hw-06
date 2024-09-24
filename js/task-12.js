@@ -577,3 +577,142 @@ console.log(getTotalBalanceByGender([
       gender: "female"
     }
   ], "female"))
+
+
+// --------------------------------------------------------Task 12
+
+  // const myFruits = ['🍉','🍊','🍌','🍓','🍐','🍊','🍎','🍒','🍓','🍌','🍌','🍊','🍒','🍐','🍓','🍉'];
+
+  
+  // const getSortedFruits = fruits => fruits.reduce((acc, fruit) => {
+  //     if(!acc[fruit]){
+  //         acc[fruit] = 0; 
+  //     }
+  //     acc[fruit] += 1;
+  //     return acc;
+  // },  {})
+
+  
+  // console.log(getSortedFruits(myFruits));
+
+
+  // --------------------------------------------------------Task 13
+
+  class Storage {
+    constructor(items) {
+      this.items = items;
+    }
+    getItems(){
+      return this.items 
+    }
+    addItem (newItem){
+      return this.items.push(newItem);
+    }
+    removeItem(itemToRemove){
+      const idx = this.items.indexOf(itemToRemove)
+      if(!!~idx) {
+        this.items.splice(idx, 1)
+      }
+    }
+  }
+  
+  
+
+  // const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+  // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+  // storage.addItem("Droid");
+  // console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+  // storage.removeItem("Prolonger");
+  // console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+
+
+
+  // --------------------------------------------------------Task 14
+
+class StringBuilder {
+  constructor(initialValue) {
+    this.value = initialValue;
+  }
+  getValue() {
+    return this.value;
+  }
+
+  padStart(str) {
+       this.value =  str + this.value
+  }
+  
+  padEnd(str) {
+     this.value += str
+}
+  padBoth(str) {
+    this.padStart(str)
+    this.padEnd(str)
+  }
+}
+
+// const builder = new StringBuilder(".");
+// console.log(builder.getValue()); // "."
+// builder.padStart("^");
+// console.log(builder.getValue()); // "^."
+// builder.padEnd("^");
+// console.log(builder.getValue()); // "^.^"
+// builder.padBoth("=");
+// console.log(builder.getValue()); // "=^.^="
+
+
+
+  // --------------------------------------------------------Task 15
+
+
+  class User {
+    email;
+  
+    constructor(email) {
+      this.email = email;
+    }
+  
+    get email() {
+      return this.email;
+    }
+  
+    set email(newEmail) {
+      this.email = newEmail;
+    }
+  }
+  class Admin extends User {
+    
+  
+    static AccessLevel = {
+      BASIC: "basic",
+      SUPERUSER: "superuser",
+    };
+  
+    constructor({ email, accessLevel, blacklistedEmails = [] }) {
+      super(email);
+      this.accessLevel = accessLevel;
+      this.blacklistedEmails = blacklistedEmails;
+    }
+  
+    blacklist(email) {
+     this.blacklistedEmails.push(email)
+    }
+
+    isBlacklisted(email) {
+      return this.blacklistedEmails.includes(email) ? true : false
+    }
+    
+  }
+  
+  const mango = new Admin({
+    email: "mango@mail.com",
+    accessLevel: Admin.AccessLevel.SUPERUSER,
+  });
+  
+  console.log(mango.email); // "mango@mail.com"
+  console.log(mango.accessLevel); // "superuser"
+  
+  mango.blacklist("poly@mail.com");
+  console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+  console.log(mango.isBlacklisted("mango@mail.com")); // false
+  console.log(mango.isBlacklisted("poly@mail.com")); // true
