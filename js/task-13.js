@@ -55,123 +55,148 @@ const people3 = [{
     },
 ];
 
-function findTheNarcis (arr) {
-// arr.forEach(({name, know}) => {
-//    console.log(know.length)
-//    if (know.length === 0) {
-//      name
-//    }
-    
-// })
-const friends = arr.map(({name, know}) => {
-    if (know.length === 0) {
-        return name
+function findTheNarcis (people) {
+for (const candidate of people) {
+    if (candidate.know.length === 0) {
+        
+        let isKnownByEveryone = people.every(person => {return person === candidate || person.know.includes(candidate.name)})
+        if(isKnownByEveryone) {
+            return candidate.name;
+        }
     }
-    return 'not found'
-})
-console.log(friends)
+   
+}
+return "Not found"
 
 }
 
-
-findTheNarcis(people3)
-
-
-// 1. Перебрать массив
-// 2. Найти колл-во друзей у каждого
-// 3. если есть пропускаем, если нет вывести имя человек
-// --------------------------------------------------------------------------------------------------------//
-
-// // Представлений масив фільмів (films) кожен елемент масиву являється об'єктом в якого є назва фільму та масив з жанрами до яких він відноситься, але в масиві (genreIDs) тільки ID цих фільмів.
-// // Потрібно в кожен об'єкт додати ключ genreNames який буде масивом з назвами жанрів до яких цей фільм відноситься. Після чого відрендерити список фільмів як наведено в прикладі нижче (Expected result), якщо в списку жанрів більш ніж 2 фільми тоді рендеримо назву перших двох жанрів, а всі інші замінюємо на "Others".
-// // Співвідношення ID жанру та назви жанру знаходиться в об'єкті genresInfo.
-
-// // //Object example
-// // {
-// //     title: "Interceptor",
-// //     genreIDs: [
-// //         28,
-// //         53,
-// //         12,
-// //     ],
-// //     genreNames: [
-// //         "Action",
-// //         "Thriller",
-// //         "Adventure"
-// //     ]
-// // }
+// console.log(findTheNarcis(people3))
 
 
-// ////  Expected result
-// // Films list:
-// // 1. 'Interceptor: Action, Thriller, Others.'
-// // 2. 'Fantastic Beasts: The Secrets of Dumbledore: Fantasy, Adventure, Others.'
-// // 3. 'Last Seen Alive: Action, Thriller.'
-// // 4. 'Jurassic World Dominion: Science Fiction, Action, Others.'
+// Представлений масив фільмів (films) кожен елемент масиву являється об'єктом в якого є назва фільму та масив з жанрами 
+// до яких він відноситься, але в масиві (genreIDs) тільки ID цих фільмів.
+// Потрібно в кожен об'єкт додати ключ genreNames який буде масивом з назвами жанрів до яких цей фільм відноситься. 
+// Після чого відрендерити список фільмів як наведено в прикладі нижче (Expected result), якщо в списку жанрів 
+// більш ніж 2 фільми тоді рендеримо назву перших двох жанрів, а всі інші замінюємо на "Others".
+// Співвідношення ID жанру та назви жанру знаходиться в об'єкті genresInfo.
 
-// const films = [{
-//         title: "Interceptor",
-//         genreIDs: [
-//             28,
-//             53,
-//             12,
-//         ],
-//     },
-//     {
-//         title: "Fantastic Beasts: The Secrets of Dumbledore",
-//         genreIDs: [
-//             14,
-//             12,
-//             28
-//         ],
-//     },
-//     {
-//         title: "Last Seen Alive",
-//         genreIDs: [
-//             28,
-//             53
-//         ],
-//     },
-//     {
-//         title: "Jurassic World Dominion",
-//         genreIDs: [
-//             878,
-//             28,
-//             12,
-//             53
-//         ],
-//     },
-// ];
-
-
-
-// const genresInfo = {
-//     genres: [{
-//         id: 28,
-//         name: "Action"
-//     }, {
-//         id: 12,
-//         name: "Adventure"
-//     }, {
-//         id: 14,
-//         name: "Fantasy"
-//     }, {
-//         id: 878,
-//         name: "Science Fiction"
-//     }, {
-//         id: 53,
-//         name: "Thriller"
-//     }, {
-//         id: 10752,
-//         name: "War"
-//     }, {
-//         id: 37,
-//         name: "Western"
-//     }]
+//Object example
+// {
+//     title: "Interceptor",
+//     genreIDs: [
+//         28,
+//         53,
+//         12,
+//     ],
+//     genreNames: [
+//         "Action",
+//         "Thriller",
+//         "Adventure"
+//     ]
 // }
 
-// //     .
 
+//  Expected result
+// Films list:
+// 1. 'Interceptor: Action, Thriller, Others.'
+// 2. 'Fantastic Beasts: The Secrets of Dumbledore: Fantasy, Adventure, Others.'
+// 3. 'Last Seen Alive: Action, Thriller.'
+// 4. 'Jurassic World Dominion: Science Fiction, Action, Others.'
+
+const films = [{
+        title: "Interceptor",
+        genreIDs: [
+            28,
+            53,
+            12,
+        ],
+    },
+    {
+        title: "Fantastic Beasts: The Secrets of Dumbledore",
+        genreIDs: [
+            14,
+            12,
+            28
+        ],
+    },
+    {
+        title: "Last Seen Alive",
+        genreIDs: [
+            28,
+            53
+        ],
+    },
+    {
+        title: "Jurassic World Dominion",
+        genreIDs: [
+            878,
+            28,
+            12,
+            53
+        ],
+    },
+];
+
+
+
+const genresInfo = {
+    genres: [{
+        id: 28,
+        name: "Action"
+    }, {
+        id: 12,
+        name: "Adventure"
+    }, {
+        id: 14,
+        name: "Fantasy"
+    }, {
+        id: 878,
+        name: "Science Fiction"
+    }, {
+        id: 53,
+        name: "Thriller"
+    }, {
+        id: 10752,
+        name: "War"
+    }, {
+        id: 37,
+        name: "Western"
+    }]
+}
+
+function addGenresNames(films){
+    for (const film of films) {
+        film.genreNames = [];
+            for (const genreID of film.genreIDs) {
+            
+                let genresArr = genresInfo.genres.map(genres => genres)
+                    for (const genre of genresArr) {
+                        if(genreID === genre.id){
+                            film.genreNames.push(genre.name)
+                
+                        }
+                    }
+            }
+
+    }
+}
+   
+addGenresNames(films);
+
+const form = document.querySelector('.form-select');
+function createformMarkup(data) {
+   
+    const formData = films.map(({title}, idx) => { return `<option value="${idx+1}" data-value="film">${title}</option>`}).join("");
+    form.insertAdjacentHTML('beforeend', formData)
+}
+
+createformMarkup(films)
+
+form.addEventListener('click', (evt) => {
+    console.log(evt.target)
+    // if evt.currentTarget.value === 
+}
+)
 
 
 
@@ -189,4 +214,4 @@ findTheNarcis(people3)
 // // const student = new Student('Петрик', 'Пяточкин', 2019);
 
 // // student.getFullName(); //поверне 'Петрик Пяточкин'
-// // student.getCourse();   //поверне 3 (третій курс)
+// student.getCourse();   //поверне 3 (третій курс)
