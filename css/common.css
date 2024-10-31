@@ -22,3 +22,7 @@ button {
   padding: 8px 12px;
   cursor: pointer;
 }
+
+.form-select {
+  margin-bottom: 40px;
+}

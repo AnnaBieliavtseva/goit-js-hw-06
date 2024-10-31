@@ -104,6 +104,7 @@ return "Not found"
 // 4. 'Jurassic World Dominion: Science Fiction, Action, Others.'
 
 const films = [{
+        id: 1,
         title: "Interceptor",
         genreIDs: [
             28,
@@ -112,6 +113,7 @@ const films = [{
         ],
     },
     {
+        id:2,
         title: "Fantastic Beasts: The Secrets of Dumbledore",
         genreIDs: [
             14,
@@ -120,6 +122,7 @@ const films = [{
         ],
     },
     {
+        id:3,
         title: "Last Seen Alive",
         genreIDs: [
             28,
@@ -127,6 +130,7 @@ const films = [{
         ],
     },
     {
+        id:4,
         title: "Jurassic World Dominion",
         genreIDs: [
             878,
@@ -184,6 +188,9 @@ function addGenresNames(films){
 addGenresNames(films);
 
 const form = document.querySelector('.form-select');
+const btn = document.querySelector('.btn-primary');
+const output = document.querySelector('.output');
+
 function createformMarkup(data) {
    
     const formData = films.map(({title}, idx) => { return `<option value="${idx+1}" data-value="film">${title}</option>`}).join("");
@@ -192,11 +199,29 @@ function createformMarkup(data) {
 
 createformMarkup(films)
 
-form.addEventListener('click', (evt) => {
-    console.log(evt.target)
-    // if evt.currentTarget.value === 
-}
-)
+
+form.addEventListener('change', (evt) => {
+    console.log(evt.target.value)
+    for (const film of films) {
+      if(evt.currentTarget.value = film.id) {
+        console.log(film.title)
+      }
+    }
+    
+    // const outputData = films.map(({title, id}) => {
+    //     return title
+    // })
+
+    // if(id = evt.target.value) {
+    //     console.log(outputData)
+    // }
+    // output.append(outputData)
+    
+   
+})
+
+
+ 
 
 
 
