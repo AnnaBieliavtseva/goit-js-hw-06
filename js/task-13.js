@@ -201,25 +201,21 @@ createformMarkup(films)
 
 
 form.addEventListener('change', (evt) => {
-    console.log(evt.target.value)
-    for (const film of films) {
-      if(evt.currentTarget.value = film.id) {
-        console.log(film.title)
-      }
+    const selectedFilmId = Number(evt.target.value)
+    const selectedFilm = films.find(film => film.id === selectedFilmId);
+
+    if (selectedFilm) {
+       
+        let genreString;
+        if (selectedFilm.genreNames.length > 2) {
+            genreString = `${selectedFilm.genreNames.slice(0, 2).join(', ')}, Others`;
+        } else {
+            genreString = selectedFilm.genreNames.join(', ');
+        }
+
+        output.textContent = `${selectedFilm.title}: ${genreString}`;
     }
-    
-    // const outputData = films.map(({title, id}) => {
-    //     return title
-    // })
-
-    // if(id = evt.target.value) {
-    //     console.log(outputData)
-    // }
-    // output.append(outputData)
-    
-   
-})
-
+});
 
  
 
@@ -228,15 +224,50 @@ form.addEventListener('change', (evt) => {
 // --------------------------------------------------------------------------------------------------------//
 
 
-// // Реалізуйте клас Student, який успадковуватиметься від класу User. Цей клас повинен мати такі властивості:
-// // name приватна властивість (ім'я, успадковується від User),
-// // surname приватна властивість (прізвище, успадковується від User),
-// // year (рік вступу до вузу).
-// // Клас повинен мати метод getFullName() (успадковується від User), за допомогою якого можна вивести одночасно ім'я та прізвище студента.
-// // Також клас повинен мати метод getCourse(), який виводитиме поточний курс студента (від 1 до 5, якщо значення перевищує 5  курс виводити що студент являєтсья випускником).
-// // Курс обчислюється так: потрібно від поточного року відняти рік вступу до вузу. Поточний рік отримаєте самостійно (читати документацію!!!).
-// // Приклад ініціалізації екземпляру класа:
-// // const student = new Student('Петрик', 'Пяточкин', 2019);
+// Реалізуйте клас Student, який успадковуватиметься від класу User. Цей клас повинен мати такі властивості:
+// name приватна властивість (ім'я, успадковується від User),
+// surname приватна властивість (прізвище, успадковується від User),
+// year (рік вступу до вузу).
+// Клас повинен мати метод getFullName() (успадковується від User), за допомогою якого можна вивести одночасно ім'я та прізвище студента.
+// Також клас повинен мати метод getCourse(), який виводитиме поточний курс студента (від 1 до 5, якщо значення перевищує 5  курс виводити що студент являєтсья випускником).
+// Курс обчислюється так: потрібно від поточного року відняти рік вступу до вузу. Поточний рік отримаєте самостійно (читати документацію!!!).
+// Приклад ініціалізації екземпляру класа:
 
-// // student.getFullName(); //поверне 'Петрик Пяточкин'
-// student.getCourse();   //поверне 3 (третій курс)
+class User {
+    #name
+    #surname
+    constructor(name, surname) {
+        this.#name = name;
+        this.#surname = surname;
+    }
+
+    getFullName(){
+        return `${this.#name} ${this.#surname}`
+    }
+}
+
+class Student extends User {
+    constructor(name, surname, year) {
+        super(name, surname);
+        
+        this.year = year;
+    }
+
+    getCourse(){
+        const currentYear = new Date().getFullYear()
+        let course = currentYear - this.year;
+        if (course > 5){
+            return "Graduate"
+        }
+        return course;
+
+    }
+}
+
+
+
+
+const student = new Student('Петрик', 'Пяточкин', 2019);
+
+console.log(student.getFullName()); //поверне 'Петрик Пяточкин'
+console.log(student.getCourse());   //поверне 5 курс
